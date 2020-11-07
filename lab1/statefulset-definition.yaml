@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metdata:
+  name: mysql
+  labels:
+    app: mysql
+
+spec:
+  template:
+    metadata:
+      labels:
+        app: mysql
+
+      spec:
+        containers:
+        - name: mysql
+          images: mysql
+
+  replicas: 3
+  selector:
+    matchLabels: 
+      app: mysql
+  serviceName: mysql-h
