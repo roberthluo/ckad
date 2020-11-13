@@ -1,0 +1,15 @@
+kubectl get pods --selector env=dev
+
+kubectl get all --selector 'env=prod, tier=frontend, bu=finance'
+
+
+kubectl expose deployment -n ingress-space ingress-controller \
+--type=NodePort --port=80 --name=ingress --dry-run=client -o yaml >ingress.yaml
+
+
+kubectl create configmap nginx-configuration --namespace ingress-space
+
+
+kubectl get netpol
+
+kubectl describe netpol payroll policy
